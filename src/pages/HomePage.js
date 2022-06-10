@@ -23,6 +23,9 @@ function HomePage() {
       <Button variant="outline-primary">
         <Link to="/stadiums">Start the hunt!</Link>
       </Button>
+      <Button variant="outline-primary">
+        <Link to={"#"}>Get inspired by other hunters!</Link>
+      </Button>
     </div>
   );
 }

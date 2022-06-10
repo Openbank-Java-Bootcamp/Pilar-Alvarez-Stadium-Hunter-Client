@@ -21,7 +21,7 @@ function StadiumsListPage() {
   console.log(stadiumsData[0].Latitude);
   console.log(typeof stadiumsData[0].Latitude);
 
-  const filteredData = stadiumsData.filter((stad) => {
+  /*   const filteredData = stadiumsData.filter((stad) => {
     const cap = parseInt(stad.Capacity.replace(".", ""));
     if (cap >= 5000) return stad;
   });
@@ -32,12 +32,12 @@ function StadiumsListPage() {
     return capb - capa;
   });
 
-  /*  const uniqueData = sortedData.filter(
+  const uniqueData = sortedData.filter(
     (stadium, index, array) =>
       array.findIndex(
         (st) => st.name == stadium.name && st.city == stadium.city
       ) == index
-  ); */
+  );
 
   const saveStadiums = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -56,7 +56,7 @@ function StadiumsListPage() {
         })
         .catch((error) => console.log(error));
     });
-  };
+  };*/
 
   const getAllStadiums = () => {
     // Get the token from the localStorage
@@ -72,7 +72,7 @@ function StadiumsListPage() {
   };
 
   useEffect(() => {
-    saveStadiums();
+    //saveStadiums();
     getAllStadiums();
   }, []);
 

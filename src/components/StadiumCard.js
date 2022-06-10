@@ -18,8 +18,9 @@ function StadiumCard(props) {
 
   const huntStadium = () => {
     const storedToken = localStorage.getItem("authToken");
+    console.log(storedToken);
     axios
-      .patch(`${API_URL}/api/users/${stadiumId}`, {
+      .patch(`${API_URL}/api/users/${props.stadium.id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .catch((error) => console.log(error));
@@ -35,12 +36,12 @@ function StadiumCard(props) {
           <Card.Text>Country: {props.stadium.country}</Card.Text>
           <>
             <Button variant="primary">
-              <Link className="plain-link" to="/stadiums/{stadiumId}">
+              <Link className="plain-link" to={`api/users/${stadiumId}`}>
                 Stadium Details
               </Link>
             </Button>
             <Button onClick={huntStadium} variant="success">
-              Stadium Hunted!
+              Hunt Stadium!
             </Button>
           </>
         </Card.Body>
