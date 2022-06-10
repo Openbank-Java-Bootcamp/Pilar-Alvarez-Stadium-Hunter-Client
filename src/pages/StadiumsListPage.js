@@ -18,46 +18,6 @@ const API_URL = "http://localhost:5005";
 function StadiumsListPage() {
   const [stadiums, setStadiums] = useState([]);
 
-  console.log(stadiumsData[0].Latitude);
-  console.log(typeof stadiumsData[0].Latitude);
-
-  /*   const filteredData = stadiumsData.filter((stad) => {
-    const cap = parseInt(stad.Capacity.replace(".", ""));
-    if (cap >= 5000) return stad;
-  });
-
-  const sortedData = [...filteredData].sort((a, b) => {
-    const capa = parseInt(a.Capacity.replace(".", ""));
-    const capb = parseInt(b.Capacity.replace(".", ""));
-    return capb - capa;
-  });
-
-  const uniqueData = sortedData.filter(
-    (stadium, index, array) =>
-      array.findIndex(
-        (st) => st.name == stadium.name && st.city == stadium.city
-      ) == index
-  );
-
-  const saveStadiums = () => {
-    const storedToken = localStorage.getItem("authToken");
-    sortedData.map((stadium) => {
-      const id = stadium.Id;
-      const name = stadium.Name;
-      const city = stadium.Town;
-      const country = stadium.Nation;
-      const lat = stadium.Latitude;
-      const long = stadium.Longitude;
-      const capacity = parseInt(stadium.Capacity.replace(".", ""));
-      const requestBody = { id, name, city, country, capacity, lat, long };
-      axios
-        .post(`${API_URL}/api/stadiums`, requestBody, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
-        .catch((error) => console.log(error));
-    });
-  };*/
-
   const getAllStadiums = () => {
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -72,7 +32,6 @@ function StadiumsListPage() {
   };
 
   useEffect(() => {
-    //saveStadiums();
     getAllStadiums();
   }, []);
 
