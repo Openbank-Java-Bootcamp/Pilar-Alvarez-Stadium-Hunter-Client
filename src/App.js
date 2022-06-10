@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header";
+import { Routes, Route } from "react-router-dom";
+import IsAnon from "./components/IsAnon";
+import Login from "./pages/LoginPage";
+import Signup from "./pages/SignupPage";
+import HomePage from "./pages/HomePage";
+import StadiumsListPage from "./pages/StadiumsListPage";
+import IsPrivate from "./components/IsPrivate";
+import StadiumDetailPage from "./pages/StadiumDetailPage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/login"
+          element={
+            <IsAnon>
+              <Login />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <IsAnon>
+              <Signup />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/stadiums"
+          element={
+            <IsPrivate>
+              <StadiumsListPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/stadiums/:stadiumId"
+          element={
+            <IsPrivate>
+              <StadiumDetailPage />
+            </IsPrivate>
+          }
+        />
+      </Routes>
     </div>
   );
 }
