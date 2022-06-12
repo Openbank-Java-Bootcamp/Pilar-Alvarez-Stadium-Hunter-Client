@@ -14,8 +14,6 @@ import axios from "axios";
 const API_URL = "http://localhost:5005";
 
 function StadiumCard(props) {
-  const { stadiumId } = useParams();
-
   const huntStadium = () => {
     const storedToken = localStorage.getItem("authToken");
     console.log(storedToken);
@@ -28,7 +26,7 @@ function StadiumCard(props) {
 
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4">
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "14rem" }}>
         <Card.Img variant="top" src={Stadium} />
         <Card.Body>
           <Card.Title>{props.stadium.name}</Card.Title>
@@ -36,7 +34,7 @@ function StadiumCard(props) {
           <Card.Text>Country: {props.stadium.country}</Card.Text>
           <>
             <Button variant="primary">
-              <Link className="plain-link" to={`api/users/${stadiumId}`}>
+              <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
                 Stadium Details
               </Link>
             </Button>

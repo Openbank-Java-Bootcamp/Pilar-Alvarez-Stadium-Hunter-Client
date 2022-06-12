@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage";
 import StadiumsListPage from "./pages/StadiumsListPage";
 import IsPrivate from "./components/IsPrivate";
 import StadiumDetailPage from "./pages/StadiumDetailPage";
+import HuntDetailsPage from "./pages/HuntDetailsPage";
+import TopHuntersPage from "./pages/TopHuntersPage";
 
 function App() {
   return (
@@ -45,6 +47,22 @@ function App() {
           element={
             <IsPrivate>
               <StadiumDetailPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/myHunt"
+          element={
+            <IsPrivate>
+              <HuntDetailsPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/topHunters"
+          element={
+            <IsPrivate>
+              <TopHuntersPage />
             </IsPrivate>
           }
         />
