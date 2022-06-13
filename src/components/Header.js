@@ -35,16 +35,16 @@ function Header() {
           {isLoggedIn ? (
             <>
               <Nav id="responsive-navbar-nav" className="me-auto">
-                <Nav.Link as={Link} to="#">
-                  Nav 1
+                <Nav.Link as={Link} to="/stadiums">
+                  Hunt
                 </Nav.Link>
-                <Nav.Link as={Link} to="#">
-                  Nav 2
+                <Nav.Link as={Link} to="/topHunters">
+                  TopHunters
                 </Nav.Link>
               </Nav>
               <Nav>
                 <Nav.Link style={{ marginRight: "3rem" }} as={Link} to="#">
-                  Welcome Hunter {user.name} &#9995;
+                  Logged as: Hunter {user.name} &#128521;
                 </Nav.Link>
               </Nav>
 

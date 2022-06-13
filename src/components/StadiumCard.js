@@ -21,18 +21,26 @@ function StadiumCard(props) {
 
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4">
-      <Card style={{ width: "14rem" }}>
+      <Card style={{ width: "14rem" }} border="dark">
         <Card.Body>
           <Card.Title>{props.stadium.name}</Card.Title>
-          <Card.Text>City: {props.stadium.city}</Card.Text>
-          <Card.Text>Country: {props.stadium.country}</Card.Text>
+          <Card.Text>
+            <b>City:</b> {props.stadium.city}
+          </Card.Text>
+          <Card.Text>
+            <b>Country:</b> {props.stadium.country}
+          </Card.Text>
           <>
-            <Button variant="primary">
+            <Button className="margin-btn" variant="secondary">
               <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
                 Stadium Details
               </Link>
             </Button>
-            <Button onClick={huntStadium} variant="success">
+            <Button
+              className="margin-btn"
+              onClick={huntStadium}
+              variant="success"
+            >
               Hunt Stadium!
             </Button>
           </>

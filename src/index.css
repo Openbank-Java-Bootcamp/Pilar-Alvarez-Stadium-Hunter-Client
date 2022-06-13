@@ -52,3 +52,42 @@ code {
   box-sizing: border-box;
   border: 0.3px solid #a09999;
 }
+
+.margin-btn {
+  margin: 5px 0px;
+}
+
+.puto-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 18px;
+  background-color: rgb(237, 35, 8);
+  border: 2px solid rgb(14, 14, 14);
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.name-st {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgb(91, 220, 59);
+  border: 2px solid rgb(14, 14, 14);
+  z-index: 1;
+  border-radius: 20%;
+  padding: 5px;
+}
+
+.margin-input {
+  margin-top: 30px;
+}
+
+.top5 {
+  border: 2px solid rgb(14, 14, 14);
+  min-width: 300px;
+  background-color: rgb(46, 42, 42);
+  color: white;
+  border-radius: 20%;
+}

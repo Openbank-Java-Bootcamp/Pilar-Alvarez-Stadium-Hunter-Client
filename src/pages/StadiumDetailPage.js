@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import StadiumCard from "../components/StadiumCard";
 import { Col, Container, Row, Card } from "react-bootstrap";
 import MyMap from "../components/IndividualMap";
-import ReviewsCarrousel from "../components/ReviewsCarrousel";
 
 const API_URL = "http://localhost:5005";
 

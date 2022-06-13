@@ -3,10 +3,10 @@ import GoogleMapReact from "google-map-react";
 
 const StadiumMarker = ({ text }) => (
   <div className="marker">
-    <h5 className="name-st">
+    <p className="name-st">
       <b>{text}</b>
-    </h5>
-    <div>&#9989;</div>
+    </p>
+    <div className="icon-marker">&#9989;</div>
   </div>
 );
 

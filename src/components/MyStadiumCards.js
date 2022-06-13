@@ -64,15 +64,19 @@ function MyStadiumCard(props) {
           <Card.Text>
             <b>Country:</b> {props.stadium.country}
           </Card.Text>
-          <Button onClick={deleteStadium} variant="danger">
+          <Button
+            className="margin-btn"
+            onClick={deleteStadium}
+            variant="danger"
+          >
             Delete Stadium
           </Button>
 
-          <Button variant="secondary" onClick={handleShow}>
+          <Button className="margin-btn" variant="success" onClick={handleShow}>
             Add Review
           </Button>
 
-          <Button variant="primary">
+          <Button className="margin-btn" variant="secondary">
             <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
               Stadium Details
             </Link>
