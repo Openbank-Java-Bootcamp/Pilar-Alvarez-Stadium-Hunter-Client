@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import StadiumCard from "../components/StadiumCard";
+import { Col, Container, Row, Card } from "react-bootstrap";
+import MyMap from "../components/IndividualMap";
+import ReviewsCarrousel from "../components/ReviewsCarrousel";
 
 const API_URL = "http://localhost:5005";
 
@@ -36,13 +39,45 @@ function StadiumDetailPage() {
   }, []);
 
   return (
-    <>
-      <h1>Como mierda muestro los review??</h1>
-      {reviews.map((rev, index) => (
-        <p key={index}>"{rev}"</p>
-      ))}
-      <StadiumCard key={stadium.id} stadium={stadium} />
-    </>
+    <Container>
+      <Row>
+        <Col>
+          <Card style={{ width: "35rem" }}>
+            <Card.Body>
+              <Card.Title>{stadium.name}</Card.Title>
+              <Card.Text>City: {stadium.city}</Card.Text>
+              <Card.Text>Country: {stadium.country}</Card.Text>
+              <Card.Text>Capacity: {stadium.capacity}</Card.Text>
+            </Card.Body>
+          </Card>
+          <Container>
+            <Row style={{ marginTop: "30px" }}>
+              <h4>Stadium Reviews</h4>
+              <Col
+                style={{
+                  overflow: "scroll",
+                  height: "160px",
+                }}
+              >
+                {reviews.map((rev) => {
+                  return (
+                    <div key={rev.id} className="comment-border">
+                      <h5>Hunter: {rev.user.name}</h5>
+                      <h6>
+                        <em>"{rev.comment}"</em>
+                      </h6>
+                    </div>
+                  );
+                })}
+              </Col>
+            </Row>
+          </Container>
+        </Col>
+        <Col>
+          <MyMap stadium={stadium} />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

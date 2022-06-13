@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap/";
-import { BsTrophyFill } from "react-icons/bs";
 
 function Header() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -45,7 +44,7 @@ function Header() {
               </Nav>
               <Nav>
                 <Nav.Link style={{ marginRight: "3rem" }} as={Link} to="#">
-                  Hunter {user.name} &#9825;{" "}
+                  Welcome Hunter {user.name} &#9995;
                 </Nav.Link>
               </Nav>
 

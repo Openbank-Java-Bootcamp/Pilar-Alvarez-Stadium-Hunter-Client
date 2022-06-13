@@ -1,14 +1,5 @@
-import Stadium from "../images/stadium-icon.jpg";
-import {
-  Card,
-  Button,
-  Col,
-  Row,
-  InputGroup,
-  Container,
-  FormControl,
-} from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Card, Button, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";
@@ -31,7 +22,6 @@ function StadiumCard(props) {
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4">
       <Card style={{ width: "14rem" }}>
-        {/* <Card.Img variant="top" src={Stadium} /> */}
         <Card.Body>
           <Card.Title>{props.stadium.name}</Card.Title>
           <Card.Text>City: {props.stadium.city}</Card.Text>

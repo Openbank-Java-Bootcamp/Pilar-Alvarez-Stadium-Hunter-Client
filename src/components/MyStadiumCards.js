@@ -68,8 +68,14 @@ function MyStadiumCard(props) {
             Delete Stadium
           </Button>
 
-          <Button variant="primary" onClick={handleShow}>
+          <Button variant="secondary" onClick={handleShow}>
             Add Review
+          </Button>
+
+          <Button variant="primary">
+            <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
+              Stadium Details
+            </Link>
           </Button>
 
           <Modal show={show} onHide={handleClose}>
