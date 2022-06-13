@@ -69,7 +69,7 @@ function Login(props) {
             onChange={(e) => handlePassword(e)}
           />
 
-          <Button className="block-button" type="submit" variant="primary">
+          <Button className="block-button" type="submit" variant="dark">
             Log In
           </Button>
         </InputGroup>
@@ -87,7 +87,7 @@ function Login(props) {
         as={Link}
         to="/signup"
         type="submit"
-        variant="primary"
+        variant="dark"
       >
         Sign Up
       </Button>

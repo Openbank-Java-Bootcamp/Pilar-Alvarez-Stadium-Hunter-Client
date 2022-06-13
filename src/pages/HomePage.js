@@ -18,14 +18,28 @@ const API_URL = "http://localhost:5005";
 
 function HomePage() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <Button variant="outline-primary">
-        <Link to="/stadiums">Start the hunt!</Link>
-      </Button>
-      <Button variant="outline-primary">
-        <Link to={"/topHunters"}>Get inspired by other hunters!</Link>
-      </Button>
+    <div className="homePageHunters">
+      <Container>
+        <Row>
+          <Col>
+            <h1>The Nº1 App for serial football stadium hunters.</h1>
+            <h3>Keep track of each of your hunts.</h3>
+            <Button variant="dark">
+              <Link className="button-link" to="/stadiums">
+                START THE HUNT!
+              </Link>
+            </Button>
+          </Col>
+          <Col className="padTop">
+            <Button variant="dark">
+              <Link className="button-link" to={"/topHunters"}>
+                GET INSPIRED BY OTHER HUNTERS!!
+              </Link>
+            </Button>
+            <h2>Meet the most experienced hunters.</h2>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

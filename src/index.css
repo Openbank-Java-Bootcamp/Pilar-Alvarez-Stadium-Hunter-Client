@@ -21,3 +21,29 @@ code {
   text-decoration: none;
   color: black;
 }
+
+.homePageHunters {
+  height: 100vh;
+  margin-top: -40px;
+  background-image: url("./images/9.jpg");
+  background-size: cover;
+  padding-top: 70px;
+}
+
+.button-link {
+  text-decoration: none;
+  color: white;
+}
+
+:hover.button-link {
+  text-decoration: none;
+  color: white;
+}
+
+.padTop {
+  padding-top: 110px;
+}
+
+.margin1 {
+  margin-bottom: 20px;
+}

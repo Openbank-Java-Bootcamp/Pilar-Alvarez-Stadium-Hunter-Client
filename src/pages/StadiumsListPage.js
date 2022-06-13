@@ -18,8 +18,24 @@ const API_URL = "http://localhost:5005";
 
 function StadiumsListPage() {
   const [stadiums, setStadiums] = useState([]);
-  const [sortedStadiums, setSortedStadiums] = useState([]);
   const [text, setText] = useState("");
+  const [huntedStadiums, setHuntedStadiums] = useState([]);
+  const [toShowStadiums, setToShowStadiums] = useState([]);
+
+  const getHuntedStadiums = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .get(`${API_URL}/api/users/stadiums`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setHuntedStadiums(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  const sortStadiums = (arr) => {
+    const sortArr = [...arr].sort((a, b) => b.capacity - a.capacity);
+    setStadiums(sortArr);
+  };
 
   const getAllStadiums = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -27,19 +43,26 @@ function StadiumsListPage() {
       .get(`${API_URL}/api/stadiums`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setStadiums(response.data))
+      .then((response) => {
+        sortStadiums(response.data);
+      })
       .catch((error) => console.log(error));
   };
 
-  const sortStadiums = (arr) => {
-    const sortArr = [...arr].sort((a, b) => b.capacity - a.capacity);
-    setSortedStadiums(sortArr);
+  const removeHunted = (huntedStadiums, stadiums) => {
+    const toShow = stadiums.filter(
+      (st) => !huntedStadiums.find((hs) => hs.id === st.id)
+    );
+    setToShowStadiums(toShow);
   };
 
   useEffect(() => {
     getAllStadiums();
-    sortStadiums(stadiums);
+    getHuntedStadiums();
+    removeHunted(huntedStadiums, stadiums);
   }, [stadiums]);
+
+  //console.log(toShowStadiums);
 
   /*   const handleInput = (e) => {
     setText(e.target.value);
@@ -50,9 +73,9 @@ function StadiumsListPage() {
       <Row>
         <Col style={{ marginBottom: "10px" }}>
           <h1 className="mb-5 text-center">Let's start the hunting!</h1>
-          <Button variant="primary">
-            <Link className="plain-link" to={`/myHunt`}>
-              My Hunt Details
+          <Button className="margin1" variant="dark">
+            <Link className="button-link" to={`/myHunt`}>
+              Go to <b>My Hunting Room</b>
             </Link>
           </Button>
           <form /*onSubmit={handleSubmit}*/>
@@ -64,7 +87,7 @@ function StadiumsListPage() {
                 //value="la verga no funciona"
                 //onChange={(e) => handleInput(e)}
               />
-              <Button type="submit" variant="secondary">
+              <Button type="submit" variant="dark">
                 Search
               </Button>
             </InputGroup>
@@ -72,8 +95,12 @@ function StadiumsListPage() {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className="g-5">
-        {sortedStadiums.map((stadium) => (
-          <StadiumCard key={stadium.id} stadium={stadium} />
+        {toShowStadiums.map((stadium) => (
+          <StadiumCard
+            key={stadium.id}
+            stadium={stadium}
+            getHuntedStadiums={getHuntedStadiums}
+          />
         ))}
       </Row>
     </Container>

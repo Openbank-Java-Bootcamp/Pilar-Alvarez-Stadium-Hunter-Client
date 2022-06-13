@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import axios from "axios";
 import StadiumCard from "../components/StadiumCard";
 import HuntPieChart from "../components/HuntPieChart";
+import MyStadiumCard from "../components/MyStadiumCards";
 
 const API_URL = "http://localhost:5005";
 
@@ -32,7 +33,7 @@ function HuntDetailsPage() {
         </Row>
         <Row xs={1} md={3} className="g-5">
           {huntedStadiums.map((stadium) => (
-            <StadiumCard key={stadium.id} stadium={stadium} />
+            <MyStadiumCard key={stadium.id} stadium={stadium} />
           ))}
         </Row>
       </Container>

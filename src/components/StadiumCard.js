@@ -18,16 +18,20 @@ function StadiumCard(props) {
     const storedToken = localStorage.getItem("authToken");
     console.log(storedToken);
     axios
-      .patch(`${API_URL}/api/users/${props.stadium.id}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .patch(
+        `${API_URL}/api/users/${props.stadium.id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
       .catch((error) => console.log(error));
   };
 
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4">
       <Card style={{ width: "14rem" }}>
-        <Card.Img variant="top" src={Stadium} />
+        {/* <Card.Img variant="top" src={Stadium} /> */}
         <Card.Body>
           <Card.Title>{props.stadium.name}</Card.Title>
           <Card.Text>City: {props.stadium.city}</Card.Text>

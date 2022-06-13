@@ -11,7 +11,7 @@ function Header() {
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="primary"
+      bg="dark"
       variant="dark"
       style={{ marginBottom: "30px", zIndex: "5" }}
     >
@@ -21,7 +21,7 @@ function Header() {
           as={Link}
           to="/"
         >
-          <BsTrophyFill className="d-inline-block align-top" />
+          <span>StadiumHunters</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse
@@ -45,7 +45,7 @@ function Header() {
               </Nav>
               <Nav>
                 <Nav.Link style={{ marginRight: "3rem" }} as={Link} to="#">
-                  Welcome {"aqui usuario"} &#9825;{" "}
+                  Hunter {user.name} &#9825;{" "}
                 </Nav.Link>
               </Nav>
 
