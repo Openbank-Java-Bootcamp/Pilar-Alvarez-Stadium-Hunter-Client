@@ -18,9 +18,11 @@ const API_URL = "http://localhost:5005";
 
 function StadiumsListPage() {
   const [stadiums, setStadiums] = useState([]);
-  const [text, setText] = useState("");
   const [huntedStadiums, setHuntedStadiums] = useState([]);
   const [toShowStadiums, setToShowStadiums] = useState([]);
+  const [showFilterStadiums, setShowFilterStadiums] = useState([
+    toShowStadiums,
+  ]);
 
   const getHuntedStadiums = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -62,12 +64,18 @@ function StadiumsListPage() {
     removeHunted(huntedStadiums, stadiums);
   }, [stadiums]);
 
-  //console.log(toShowStadiums);
+  /*   const filterStadiums = (text, searchType) => {
+    let filteredStadiums;
+    if (text === "") {
+      filteredStadiums = toShowStadiums;
+    } else {
+      filteredStadiums = toShowStadiums.filter((stadium) => {
+        return stadium.name.toLowerCase().includes(text.toLowerCase());
+      });
+    }
+    setShowFilterStadiums(filteredStadiums);
+  }; */
 
-  /*   const handleInput = (e) => {
-    setText(e.target.value);
-  };
- */
   return (
     <Container>
       <Row>
@@ -78,6 +86,7 @@ function StadiumsListPage() {
               Go to <b>My Hunting Room</b>
             </Link>
           </Button>
+          {/* <SearchBar filterStadiums={filterStadiums} /> */}
           <form /*onSubmit={handleSubmit}*/>
             <InputGroup>
               <FormControl

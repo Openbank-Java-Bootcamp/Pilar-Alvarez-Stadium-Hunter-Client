@@ -6,13 +6,23 @@ import {
   InputGroup,
   Container,
   FormControl,
+  Form,
+  Modal,
 } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 const API_URL = "http://localhost:5005";
 
 function MyStadiumCard(props) {
+  const [show, setShow] = useState(false);
+  const [comment, setComment] = useState("");
+  const [rating, setRating] = useState(0);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const deleteStadium = () => {
     const storedToken = localStorage.getItem("authToken");
     console.log(storedToken);
@@ -21,6 +31,24 @@ function MyStadiumCard(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const stadiumId = props.stadium.id;
+    const requestBody = { comment, rating, stadiumId };
+    const storedToken = localStorage.getItem("authToken");
+    console.log(storedToken);
+    axios
+      .post(`${API_URL}/api/reviews`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setComment("");
+        setRating("");
+      })
+      .catch((error) => console.log(error));
+    handleClose();
   };
 
   return (
@@ -39,6 +67,49 @@ function MyStadiumCard(props) {
           <Button onClick={deleteStadium} variant="danger">
             Delete Stadium
           </Button>
+
+          <Button variant="primary" onClick={handleShow}>
+            Add Review
+          </Button>
+
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Review</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlTextarea1"
+                >
+                  <Form.Label>
+                    Let other hunters know your opinion...
+                  </Form.Label>
+                  <Form.Control
+                    onChange={(e) => setComment(e.target.value)}
+                    as="textarea"
+                    rows={3}
+                  />
+                </Form.Group>
+                <Form.Select aria-label="Default select example">
+                  <option>Rate this stadium</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="4">5</option>
+                </Form.Select>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleSubmit}>
+                Submit Review
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Card.Body>
       </Card>
     </Col>

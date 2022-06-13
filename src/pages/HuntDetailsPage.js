@@ -22,7 +22,7 @@ function HuntDetailsPage() {
 
   useEffect(() => {
     getHuntedStadiums();
-  }, []);
+  }, [huntedStadiums]);
 
   return (
     <>
