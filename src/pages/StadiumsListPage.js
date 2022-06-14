@@ -11,6 +11,7 @@ import {
   Container,
   FormControl,
   Form,
+  Spinner,
 } from "react-bootstrap";
 import StadiumCard from "../components/StadiumCard";
 import SearchBar from "../components/SearchBar";
@@ -24,11 +25,12 @@ function StadiumsListPage() {
   const [toShowStadiums, setToShowStadiums] = useState([]);
   const [search, setSearch] = useState("");
   const [searchType, setSearchType] = useState("name");
+  const [loading, setLoading] = useState("true");
 
   const sortStadiums = (arr) => {
     const sortArr = [...arr].sort((a, b) => b.capacity - a.capacity);
     setStadiums(sortArr);
-    setToShowStadiums(sortArr);
+    setToShowStadiums(stadiums);
   };
 
   const getAllStadiums = () => {
@@ -39,6 +41,7 @@ function StadiumsListPage() {
       })
       .then((response) => {
         sortStadiums(response.data);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   };
@@ -53,10 +56,14 @@ function StadiumsListPage() {
         setHuntedStadiums(response.data);
       })
       .catch((error) => console.log(error));
+  };
+
+  const removeHuntedStadiums = () => {
     const toShow = stadiums.filter(
       (st) => !huntedStadiums.find((hs) => hs.id === st.id)
     );
     setRemainStadiums(toShow);
+    setToShowStadiums(remainStadiums);
   };
 
   useEffect(() => {
@@ -65,6 +72,7 @@ function StadiumsListPage() {
 
   useEffect(() => {
     getHuntedStadiums();
+    removeHuntedStadiums();
   }, [huntedStadiums]);
 
   const handleSubmit = (e) => {
@@ -91,8 +99,6 @@ function StadiumsListPage() {
     }
   };
 
-  console.log(remainStadiums);
-
   return (
     <Container>
       <Row>
@@ -118,7 +124,7 @@ function StadiumsListPage() {
               <> </>
               <Button
                 onClick={() => setToShowStadiums(remainStadiums)}
-                variant="dark"
+                variant="outline-dark"
               >
                 Refresh
               </Button>
@@ -144,6 +150,15 @@ function StadiumsListPage() {
           />
         </Col>
       </Row>
+      {loading && (
+        <Row>
+          <div className="loading">
+            <Spinner animation="border" variant="dark" />
+            <p>Please Wait...</p>
+            <p>This may take a few minutes</p>
+          </div>
+        </Row>
+      )}
       <Row xs={2} md={3} lg={4} className="g-5">
         {toShowStadiums.map((stadium) => (
           <StadiumCard key={stadium.id} stadium={stadium} />

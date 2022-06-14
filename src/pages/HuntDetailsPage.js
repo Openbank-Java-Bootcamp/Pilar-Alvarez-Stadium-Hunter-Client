@@ -85,7 +85,7 @@ function HuntDetailsPage() {
         </Row>
         <Row>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="margin-input">
+            <InputGroup className="margin-input">
               <FormControl
                 placeholder="Search Stadiums by Name"
                 name="search"
@@ -99,11 +99,11 @@ function HuntDetailsPage() {
               <> </>
               <Button
                 onClick={() => setToShowStadiums(huntedStadiums)}
-                variant="dark"
+                variant="outline-dark"
               >
                 Refresh
               </Button>
-            </Form.Group>
+            </InputGroup>
           </Form>
         </Row>
         <Row xs={1} md={4} className="g-5" style={{ marginTop: "20px" }}>

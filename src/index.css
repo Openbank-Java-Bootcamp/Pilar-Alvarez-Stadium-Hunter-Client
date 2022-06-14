@@ -103,3 +103,7 @@ code {
   height: 80vh;
   padding: 20px;
 }
+
+.loading {
+  width: 500px;
+}
