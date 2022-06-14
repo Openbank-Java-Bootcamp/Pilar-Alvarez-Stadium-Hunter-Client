@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const API_URL = "http://localhost:5005";
 
@@ -19,6 +19,7 @@ function MyStadiumCard(props) {
   const [show, setShow] = useState(false);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
+  const [remove, setRemove] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -31,7 +32,15 @@ function MyStadiumCard(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .catch((error) => console.log(error));
+    setRemove((prevRemove) => prevRemove + 1);
   };
+
+  useEffect(() => {
+    props.getCountries();
+    props.getHuntedStadiums();
+  }, [remove]);
+
+  console.log(remove);
 
   const handleSubmit = (e) => {
     e.preventDefault();

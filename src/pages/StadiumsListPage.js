@@ -1,9 +1,7 @@
-import stadiumsData from "../stadiums-data.json";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  Card,
   Button,
   Col,
   Row,
@@ -14,7 +12,6 @@ import {
   Spinner,
 } from "react-bootstrap";
 import StadiumCard from "../components/StadiumCard";
-import SearchBar from "../components/SearchBar";
 
 const API_URL = "http://localhost:5005";
 
@@ -25,12 +22,12 @@ function StadiumsListPage() {
   const [toShowStadiums, setToShowStadiums] = useState([]);
   const [search, setSearch] = useState("");
   const [searchType, setSearchType] = useState("name");
-  const [loading, setLoading] = useState("true");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const sortStadiums = (arr) => {
     const sortArr = [...arr].sort((a, b) => b.capacity - a.capacity);
     setStadiums(sortArr);
-    setToShowStadiums(stadiums);
+    // setToShowStadiums(stadiums);
   };
 
   const getAllStadiums = () => {
@@ -41,7 +38,7 @@ function StadiumsListPage() {
       })
       .then((response) => {
         sortStadiums(response.data);
-        setLoading(false);
+        console.log("test1");
       })
       .catch((error) => console.log(error));
   };
@@ -54,6 +51,8 @@ function StadiumsListPage() {
       })
       .then((response) => {
         setHuntedStadiums(response.data);
+        setIsLoaded(true);
+        console.log("test2");
       })
       .catch((error) => console.log(error));
   };
@@ -62,18 +61,24 @@ function StadiumsListPage() {
     const toShow = stadiums.filter(
       (st) => !huntedStadiums.find((hs) => hs.id === st.id)
     );
+
+    console.log("test");
+    setIsLoaded(false);
     setRemainStadiums(toShow);
-    setToShowStadiums(remainStadiums);
+    setToShowStadiums(toShow);
   };
 
   useEffect(() => {
     getAllStadiums();
+    getHuntedStadiums();
   }, []);
 
   useEffect(() => {
-    getHuntedStadiums();
+    // if (isLoaded) {
+    //   console.log(isLoaded);
     removeHuntedStadiums();
-  }, [huntedStadiums]);
+    // }
+  }, [isLoaded]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,7 +91,6 @@ function StadiumsListPage() {
           return stadium.name.toLowerCase().includes(search.toLowerCase());
         });
       }
-      setToShowStadiums(filteredStadiums);
     } else if (searchType === "country") {
       if (search === "") {
         filteredStadiums = remainStadiums;
@@ -95,9 +99,20 @@ function StadiumsListPage() {
           return stadium.country.toLowerCase().includes(search.toLowerCase());
         });
       }
-      setToShowStadiums(filteredStadiums);
     }
+    setToShowStadiums(filteredStadiums);
+    setSearch("");
   };
+
+  const refresh = () => {
+    setToShowStadiums(remainStadiums);
+    setSearch("");
+  };
+
+  // console.log(stadiums);
+  // console.log(huntedStadiums);
+  // console.log(remainStadiums);
+  // console.log(toShowStadiums);
 
   return (
     <Container>
@@ -122,10 +137,7 @@ function StadiumsListPage() {
                 Search
               </Button>
               <> </>
-              <Button
-                onClick={() => setToShowStadiums(remainStadiums)}
-                variant="outline-dark"
-              >
+              <Button onClick={() => refresh()} variant="outline-dark">
                 Refresh
               </Button>
             </InputGroup>
@@ -150,7 +162,7 @@ function StadiumsListPage() {
           />
         </Col>
       </Row>
-      {loading && (
+      {toShowStadiums == [] && (
         <Row>
           <div className="loading">
             <Spinner animation="border" variant="dark" />
@@ -161,7 +173,13 @@ function StadiumsListPage() {
       )}
       <Row xs={2} md={3} lg={4} className="g-5">
         {toShowStadiums.map((stadium) => (
-          <StadiumCard key={stadium.id} stadium={stadium} />
+          <StadiumCard
+            key={stadium.id}
+            stadium={stadium}
+            getHuntedStadiums={getHuntedStadiums}
+            removeHuntedStadiums={removeHuntedStadiums}
+            huntedStadiums={huntedStadiums}
+          />
         ))}
       </Row>
     </Container>

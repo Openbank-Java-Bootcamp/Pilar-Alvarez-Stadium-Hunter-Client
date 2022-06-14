@@ -49,7 +49,7 @@ function HuntDetailsPage() {
   useEffect(() => {
     getHuntedStadiums();
     getCountries();
-  }, [huntedStadiums]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,6 +62,8 @@ function HuntDetailsPage() {
       });
     }
     setToShowStadiums(filteredStadiums);
+    setSearch("");
+    console.log(filteredStadiums);
   };
 
   return (
@@ -108,7 +110,12 @@ function HuntDetailsPage() {
         </Row>
         <Row xs={1} md={4} className="g-5" style={{ marginTop: "20px" }}>
           {toShowStadiums.map((stadium) => (
-            <MyStadiumCard key={stadium.id} stadium={stadium} />
+            <MyStadiumCard
+              key={stadium.id}
+              stadium={stadium}
+              getCountries={getCountries}
+              getHuntedStadiums={getHuntedStadiums}
+            />
           ))}
         </Row>
       </Container>

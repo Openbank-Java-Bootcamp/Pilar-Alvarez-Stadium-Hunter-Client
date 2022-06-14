@@ -1,10 +1,13 @@
 import { Card, Button, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 const API_URL = "http://localhost:5005";
 
 function StadiumCard(props) {
+  const [add, setAdd] = useState(0);
+
   const huntStadium = () => {
     const storedToken = localStorage.getItem("authToken");
     console.log(storedToken);
@@ -16,9 +19,17 @@ function StadiumCard(props) {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       )
+      .then((response) => {
+        props.getHuntedStadiums();
+      })
       .catch((error) => console.log(error));
-    //props.getHuntedStadiums();
+    //setAdd((prevAdd) => prevAdd + 1);
   };
+
+  useEffect(() => {
+    // props.getHuntedStadiums();
+    // props.removeHuntedStadiums();
+  }, [add]);
 
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4 ">
