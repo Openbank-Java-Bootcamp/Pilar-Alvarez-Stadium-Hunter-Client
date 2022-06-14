@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 const API_URL = "http://localhost:5005";
 
 function StadiumCard(props) {
-  const [add, setAdd] = useState(0);
-
   const huntStadium = () => {
     const storedToken = localStorage.getItem("authToken");
     console.log(storedToken);
@@ -23,13 +21,7 @@ function StadiumCard(props) {
         props.getHuntedStadiums();
       })
       .catch((error) => console.log(error));
-    //setAdd((prevAdd) => prevAdd + 1);
   };
-
-  useEffect(() => {
-    // props.getHuntedStadiums();
-    // props.removeHuntedStadiums();
-  }, [add]);
 
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4 ">
@@ -39,7 +31,7 @@ function StadiumCard(props) {
         className="shadow-card"
       >
         <Card.Body>
-          <Card.Title>{props.stadium.name}</Card.Title>
+          <Card.Title>{props.stadium.name.toUpperCase()}</Card.Title>
           <Card.Text>
             <b>City:</b> {props.stadium.city}
           </Card.Text>

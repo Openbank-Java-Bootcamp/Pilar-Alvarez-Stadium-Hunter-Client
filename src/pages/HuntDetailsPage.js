@@ -13,6 +13,8 @@ import {
   FormControl,
   Form,
 } from "react-bootstrap";
+import Chart from "chart.js/auto";
+import MyChart from "../components/MyChart";
 
 const API_URL = "http://localhost:5005";
 
@@ -67,18 +69,23 @@ function HuntDetailsPage() {
   };
 
   return (
-    <>
+    <div className="page-background">
       <Container>
         <Row>
           <Col>
             <div className="hunt-details">
-              <h2>STADIUM HUNTER ID</h2>
+              <h2>HUNTER ID</h2>
               <h2>{user.name}</h2>
               <h3>Nº of Hunts: {huntedStadiums.length}</h3>
 
-              <h3>Percentage: </h3>
-
-              <h3>Nº of Countries where you have hunted: {countries.length}</h3>
+              <h5>Out of 1300 stadiums</h5>
+              <MyChart hunted={huntedStadiums} />
+              <br />
+              <div>
+                <h5>Nº of Countries</h5>
+                <h5> where you have hunted:</h5>
+                <h5>{countries.length}</h5>
+              </div>
             </div>
           </Col>
           <Col md="8">
@@ -119,7 +126,7 @@ function HuntDetailsPage() {
           ))}
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
 

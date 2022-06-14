@@ -19,7 +19,6 @@ function MyStadiumCard(props) {
   const [show, setShow] = useState(false);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
-  const [remove, setRemove] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -31,16 +30,12 @@ function MyStadiumCard(props) {
       .delete(`${API_URL}/api/users/${props.stadium.id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
+      .then((response) => {
+        props.getHuntedStadiums();
+        props.getCountries();
+      })
       .catch((error) => console.log(error));
-    setRemove((prevRemove) => prevRemove + 1);
   };
-
-  useEffect(() => {
-    props.getCountries();
-    props.getHuntedStadiums();
-  }, [remove]);
-
-  console.log(remove);
 
   const handleSubmit = (e) => {
     e.preventDefault();
