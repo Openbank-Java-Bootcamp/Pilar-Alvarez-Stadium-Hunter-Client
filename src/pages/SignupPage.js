@@ -73,7 +73,7 @@ function Signup() {
             onChange={(e) => handlePassword(e)}
           />
 
-          <Button className="block-button" type="submit" variant="primary">
+          <Button className="block-button" type="submit" variant="dark">
             Sign Up
           </Button>
         </InputGroup>
@@ -86,7 +86,7 @@ function Signup() {
         as={Link}
         to="/login"
         type="submit"
-        variant="primary"
+        variant="dark"
       >
         Log In
       </Button>

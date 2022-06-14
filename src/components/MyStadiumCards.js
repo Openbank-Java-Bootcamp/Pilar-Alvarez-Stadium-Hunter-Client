@@ -105,13 +105,13 @@ function MyStadiumCard(props) {
                     rows={3}
                   />
                 </Form.Group>
-                <Form.Select aria-label="Default select example">
+                <Form.Select onChange={(e) => setRating(e.target.value)}>
                   <option>Rate this stadium</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="4">5</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
                 </Form.Select>
               </Form>
             </Modal.Body>

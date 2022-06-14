@@ -43,55 +43,57 @@ function Login(props) {
   };
 
   return (
-    <Container className="d-flex justify-content-center flex-column align-items-center">
-      <h3>Log In</h3>
+    <div>
+      <Container className="d-flex justify-content-center flex-column align-items-center">
+        <h3>Log In</h3>
 
-      <form onSubmit={handleSubmit}>
-        <InputGroup style={{ display: "inline-block" }}>
-          <FormControl
-            style={{ width: "300px", margin: "15px" }}
-            placeholder="Email..."
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => handleEmail(e)}
-          />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+        <form onSubmit={handleSubmit}>
+          <InputGroup style={{ display: "inline-block" }}>
+            <FormControl
+              style={{ width: "300px", margin: "15px" }}
+              placeholder="Email..."
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => handleEmail(e)}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
 
-          <FormControl
-            style={{ width: "300px", margin: "15px" }}
-            placeholder="Password..."
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => handlePassword(e)}
-          />
+            <FormControl
+              style={{ width: "300px", margin: "15px" }}
+              placeholder="Password..."
+              name="password"
+              type="password"
+              value={password}
+              onChange={(e) => handlePassword(e)}
+            />
 
-          <Button className="block-button" type="submit" variant="dark">
-            Log In
-          </Button>
-        </InputGroup>
-      </form>
+            <Button className="block-button" type="submit" variant="dark">
+              Log In
+            </Button>
+          </InputGroup>
+        </form>
 
-      <Link className="plain-link" to={"#"}>
-        Forgot password?
-      </Link>
-      <br />
+        <Link className="plain-link" to={"#"}>
+          Forgot password?
+        </Link>
+        <br />
 
-      <h6>Don't have an account?</h6>
+        <h6>Don't have an account?</h6>
 
-      <Button
-        className="block-button"
-        as={Link}
-        to="/signup"
-        type="submit"
-        variant="dark"
-      >
-        Sign Up
-      </Button>
-    </Container>
+        <Button
+          className="block-button"
+          as={Link}
+          to="/signup"
+          type="submit"
+          variant="dark"
+        >
+          Sign Up
+        </Button>
+      </Container>
+    </div>
   );
 }
 

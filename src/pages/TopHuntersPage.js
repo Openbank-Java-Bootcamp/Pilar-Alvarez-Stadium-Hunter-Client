@@ -28,7 +28,7 @@ function TopHuntersPage() {
       </Row>
       <Row>
         {topUsers.map((user) => (
-          <Col xs={2} md={4} lg={4} className="top5">
+          <Col key={user.id} xs={2} md={4} lg={4} className="top5">
             <h2>Hunter: {user.name}</h2>
             <h2>&#9889;</h2>
             <h3>
