@@ -23,7 +23,7 @@ function HomePage() {
         <Row>
           <Col>
             <h1>The Nº1 App for serial football stadium hunters.</h1>
-            <h3>Keep track of each of your hunts.</h3>
+            <h3>Keep track of each stadium you have visited.</h3>
             <Button variant="dark">
               <Link className="button-link" to="/stadiums">
                 START THE HUNT!
@@ -36,7 +36,7 @@ function HomePage() {
                 GET INSPIRED BY OTHER HUNTERS!!
               </Link>
             </Button>
-            <h2>Meet the most experienced hunters.</h2>
+            <h3>Meet the most experienced hunters.</h3>
           </Col>
         </Row>
       </Container>

@@ -82,6 +82,7 @@ code {
 
 .margin-input {
   margin-top: 30px;
+  margin-bottom: -30px;
 }
 
 .top5 {
@@ -90,4 +91,15 @@ code {
   background-color: rgb(46, 42, 42);
   color: white;
   border-radius: 20%;
+}
+
+.shadow-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hunt-details {
+  background-color: rgb(244, 235, 235);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 80vh;
+  padding: 20px;
 }

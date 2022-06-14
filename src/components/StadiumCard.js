@@ -17,11 +17,16 @@ function StadiumCard(props) {
         }
       )
       .catch((error) => console.log(error));
+    //props.getHuntedStadiums();
   };
 
   return (
-    <Col key={props.stadium.id} className="col-sm-6 col-md-4">
-      <Card style={{ width: "14rem" }} border="dark">
+    <Col key={props.stadium.id} className="col-sm-6 col-md-4 ">
+      <Card
+        style={{ width: "14rem" }}
+        border="secondary"
+        className="shadow-card"
+      >
         <Card.Body>
           <Card.Title>{props.stadium.name}</Card.Title>
           <Card.Text>
