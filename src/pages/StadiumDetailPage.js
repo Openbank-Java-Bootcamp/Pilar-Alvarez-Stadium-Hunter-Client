@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Col, Container, Row, Card } from "react-bootstrap";
+import { Col, Container, Row, Card, Button, Modal } from "react-bootstrap";
 import MyMap from "../components/IndividualMap";
 import StarRatings from "react-star-ratings";
 import MyCarousel from "../components/MyCarousel";
@@ -13,6 +13,10 @@ function StadiumDetailPage() {
   const [stadium, setStadium] = useState([]);
   const [rating, setRating] = useState(0);
   const { stadiumId } = useParams();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const getReviews = () => {
     const storedToken = localStorage.getItem("authToken");
