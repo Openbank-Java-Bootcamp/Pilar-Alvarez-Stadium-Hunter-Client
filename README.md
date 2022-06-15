@@ -72,15 +72,17 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
 
 
 
-1. Clone the repo
+
+
+Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-2. Install NPM packages
+Install NPM packages
    ```sh
    npm install
    ```
-3. Start
+Start
    ```sh
    $ npm start
    ```
@@ -105,29 +107,48 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
 
 ## Demo
 
+Login Page 
+
 ![Login](login.gif)
+
+User Profile Page
+
 ![My-profile](My-profile.gif)
+
+"Hunt" a Stadium (Add it to your profile)
+
 ![Hunt-Stadium](Hunt-Stadium.gif)
+
+Add a Review to a Stadium
+
 ![Add-Review](Add-review.gif)
+
+Delete a Stadium from your profile
+
 ![Delete-Stadium](Delete-Stadium.gif)
+
+See stadium details and reviews
+
 ![Stadium-Detail](stadium-detail.gif)
+
+Search a Stadium by Name or by Country
+
 ![Search](search.gif)
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: _no longer being worked on_.
+This is a final project to a Full Stack Developer Bootcamp, although the idea of ​​the app motivates me, I consider the work finished with the purposes it was supposed to.
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Let users add images to the review.
+- Improve the styling.
+- Integrate a chat so users can chat with other users.
+- Add functionality to the map, in order to display the stadium info o filtrate stadiums in the list.
 
-To do:
-- Feature to be added 1
-- Feature to be added 2
+
 
 ## Resources
 
