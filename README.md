@@ -100,7 +100,7 @@ Start
 
 ## Components and Pages Structure
 
-###Pages
+### Pages
 *SignUp Page
 *Login Page
 *Home Page
@@ -110,7 +110,7 @@ Start
 *Top Users Page
 
 
-###Components
+### Components
 *Hunt Stadium Button
 *Delete Stadium Button
 *Add Review Button
