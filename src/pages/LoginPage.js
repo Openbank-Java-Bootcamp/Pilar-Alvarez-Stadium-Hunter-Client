@@ -43,7 +43,7 @@ function Login(props) {
   };
 
   return (
-    <div>
+    <div className="anonym-page">
       <Container className="d-flex justify-content-center flex-column align-items-center">
         <h3>Log In</h3>
 

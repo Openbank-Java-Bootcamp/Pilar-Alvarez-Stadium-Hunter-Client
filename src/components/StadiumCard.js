@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 const API_URL = "http://localhost:5005";
 
 function StadiumCard(props) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const huntStadium = () => {
     const storedToken = localStorage.getItem("authToken");
     console.log(storedToken);
@@ -18,7 +20,8 @@ function StadiumCard(props) {
         }
       )
       .then((response) => {
-        props.getHuntedStadiums();
+        props.getRemainStadiums();
+        setIsLoaded(true);
       })
       .catch((error) => console.log(error));
   };

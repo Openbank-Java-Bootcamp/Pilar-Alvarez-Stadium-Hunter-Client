@@ -58,36 +58,38 @@ function StadiumDetailPage() {
   return (
     <div className="page-background">
       <Container>
-        <Row>
-          <Col>
-            <Card style={{ width: "35rem" }}>
-              <Card.Body>
-                <Card.Title>{stadium.name}</Card.Title>
-                <Card.Text>City: {stadium.city}</Card.Text>
-                <Card.Text>Country: {stadium.country}</Card.Text>
-                <Card.Text>Capacity: {stadium.capacity}</Card.Text>
-                <Card.Text>Rating: {rating}</Card.Text>
-                <StarRatings
-                  rating={rating}
-                  starRatedColor="blue"
-                  numberOfStars={5}
-                  name="rating"
-                />
-              </Card.Body>
-            </Card>
-            <Container>
-              <Row style={{ marginTop: "30px" }}>
-                {/* <h4>Stadium Reviews</h4> */}
-                <Col>
-                  <MyCarousel reviews={reviews} />
-                </Col>
-              </Row>
-            </Container>
-          </Col>
-          <Col>
-            <MyMap stadium={stadium} />
-          </Col>
-        </Row>
+        <div className="top-mg">
+          <Row>
+            <Col>
+              <Card style={{ width: "35rem" }}>
+                <Card.Body>
+                  <Card.Title>{stadium.name}</Card.Title>
+                  <Card.Text>City: {stadium.city}</Card.Text>
+                  <Card.Text>Country: {stadium.country}</Card.Text>
+                  <Card.Text>Capacity: {stadium.capacity}</Card.Text>
+                  <Card.Text>Rating: {rating}</Card.Text>
+                  <StarRatings
+                    rating={rating}
+                    starRatedColor="blue"
+                    numberOfStars={5}
+                    name="rating"
+                  />
+                </Card.Body>
+              </Card>
+              <Container>
+                <Row style={{ marginTop: "30px" }}>
+                  {/* <h4>Stadium Reviews</h4> */}
+                  <Col>
+                    <MyCarousel reviews={reviews} />
+                  </Col>
+                </Row>
+              </Container>
+            </Col>
+            <Col>
+              <MyMap stadium={stadium} />
+            </Col>
+          </Row>
+        </div>
       </Container>
     </div>
   );

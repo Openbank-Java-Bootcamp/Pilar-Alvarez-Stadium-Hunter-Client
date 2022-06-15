@@ -74,8 +74,8 @@ function HuntDetailsPage() {
         <Row>
           <Col>
             <div className="hunt-details">
-              <h2>HUNTER ID</h2>
-              <h2>{user.name}</h2>
+              <h2>HUNTER: {user.name}</h2>
+              <br />
               <h3>Nº of Hunts: {huntedStadiums.length}</h3>
 
               <h5>Out of 1300 stadiums</h5>

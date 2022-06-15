@@ -12,12 +12,11 @@ import {
   Spinner,
 } from "react-bootstrap";
 import StadiumCard from "../components/StadiumCard";
+import football from "../images/football-no-background.png";
 
 const API_URL = "http://localhost:5005";
 
 function StadiumsListPage() {
-  const [stadiums, setStadiums] = useState([]);
-  const [huntedStadiums, setHuntedStadiums] = useState([]);
   const [remainStadiums, setRemainStadiums] = useState([]);
   const [toShowStadiums, setToShowStadiums] = useState([]);
   const [search, setSearch] = useState("");
@@ -26,59 +25,29 @@ function StadiumsListPage() {
 
   const sortStadiums = (arr) => {
     const sortArr = [...arr].sort((a, b) => b.capacity - a.capacity);
-    setStadiums(sortArr);
-    // setToShowStadiums(stadiums);
+    setRemainStadiums(sortArr);
   };
 
-  const getAllStadiums = () => {
+  const getRemainStadiums = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
-      .get(`${API_URL}/api/stadiums`, {
+      .get(`${API_URL}/api/users/remainingStadiums`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
         sortStadiums(response.data);
-        console.log("test1");
-      })
-      .catch((error) => console.log(error));
-  };
-
-  const getHuntedStadiums = () => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .get(`${API_URL}/api/users/stadiums`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        setHuntedStadiums(response.data);
         setIsLoaded(true);
-        console.log("test2");
       })
       .catch((error) => console.log(error));
-  };
-
-  const removeHuntedStadiums = () => {
-    const toShow = stadiums.filter(
-      (st) => !huntedStadiums.find((hs) => hs.id === st.id)
-    );
-
-    console.log("test");
-    setIsLoaded(false);
-    setRemainStadiums(toShow);
-    setToShowStadiums(toShow);
   };
 
   useEffect(() => {
-    getAllStadiums();
-    getHuntedStadiums();
+    getRemainStadiums();
   }, []);
 
   useEffect(() => {
-    // if (isLoaded) {
-    //   console.log(isLoaded);
-    removeHuntedStadiums();
-    // }
-  }, [isLoaded]);
+    setToShowStadiums(remainStadiums);
+  }, [remainStadiums]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -109,17 +78,17 @@ function StadiumsListPage() {
     setSearch("");
   };
 
-  // console.log(stadiums);
-  // console.log(huntedStadiums);
-  // console.log(remainStadiums);
-  // console.log(toShowStadiums);
-
   return (
     <div className="page-background">
       <Container>
         <Row>
           <Col style={{ marginBottom: "10px" }}>
-            <h1 className="mb-5 text-center">LET'S START THE HUNTING!</h1>
+            <h1 className=" mb-5 text-center">LET'S START THE HUNTING!</h1>
+            <marquee behavior="alternate" scrollamount="40">
+              <marquee behavior="alternate" direction="down" scrollamount="30">
+                <img src={football} class="ball" />
+              </marquee>
+            </marquee>
             <Button className="margin1" variant="dark">
               <Link className="button-link" to={`/myHunt`}>
                 <b>My Hunting Collection</b>
@@ -143,43 +112,45 @@ function StadiumsListPage() {
                 </Button>
               </InputGroup>
             </form>
-            <Form.Check
-              inline
-              label="Search By Name"
-              name="group1"
-              type="radio"
-              id={`inline-radio-1`}
-              value={"name"}
-              onClick={(e) => setSearchType(e.target.value)}
-            />
-            <Form.Check
-              inline
-              label="Search By Country"
-              name="group1"
-              type="radio"
-              value={"country"}
-              id={`inline-radio-2`}
-              onClick={(e) => setSearchType(e.target.value)}
-            />
+            <div className="form-top-mg">
+              <Form.Check
+                inline
+                label="Search By Name"
+                name="group1"
+                type="radio"
+                id={`inline-radio-1`}
+                value={"name"}
+                onClick={(e) => setSearchType(e.target.value)}
+              />
+              <Form.Check
+                inline
+                label="Search By Country"
+                name="group1"
+                type="radio"
+                value={"country"}
+                id={`inline-radio-2`}
+                onClick={(e) => setSearchType(e.target.value)}
+              />
+            </div>
           </Col>
         </Row>
-        {toShowStadiums == [] && (
-          <Row>
-            <div className="loading">
-              <Spinner animation="border" variant="dark" />
-              <p>Please Wait...</p>
-              <p>This may take a few minutes</p>
-            </div>
-          </Row>
+        {!isLoaded && (
+          <div className="charging">
+            <Row>
+              <div className="loading">
+                <Spinner animation="border" variant="dark" />
+                <p>Please Wait...</p>
+                <p>This may take a few minutes</p>
+              </div>
+            </Row>
+          </div>
         )}
         <Row xs={2} md={3} lg={4} className="g-5">
           {toShowStadiums.map((stadium) => (
             <StadiumCard
               key={stadium.id}
               stadium={stadium}
-              getHuntedStadiums={getHuntedStadiums}
-              removeHuntedStadiums={removeHuntedStadiums}
-              huntedStadiums={huntedStadiums}
+              getRemainStadiums={getRemainStadiums}
             />
           ))}
         </Row>

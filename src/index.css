@@ -30,6 +30,16 @@ code {
   padding-top: 70px;
 }
 
+.button-link-hp {
+  text-decoration: none;
+  color: rgb(10, 9, 9);
+}
+
+:hover.button-link-hp {
+  text-decoration: none;
+  color: rgb(10, 9, 9);
+}
+
 .button-link {
   text-decoration: none;
   color: white;
@@ -98,7 +108,7 @@ code {
 }
 
 .hunt-details {
-  background-color: rgb(244, 235, 235);
+  background-color: rgb(230, 242, 162);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 80vh;
   padding: 20px;
@@ -113,12 +123,14 @@ code {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-style: normal;
+  /*  margin: 0;
+  padding: 0; */
 }
 
 .page-background {
-  margin-top: -40px;
-  padding-top: 70px;
-
+  padding-top: 80px;
+  min-height: 100vh;
+  /* margin-top: 50px; */
   background: #bdc3c7; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -131,4 +143,92 @@ code {
     #bdc3c7
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding-bottom: 50px;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: -10px;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.over {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.home-page-text {
+  color: black;
+}
+
+.button-hp {
+  margin-bottom: 70px;
+}
+
+.charging {
+  height: 100vh;
+  margin-top: 50px;
+}
+
+.form-top-mg {
+  margin-top: 10px;
+}
+
+marquee {
+  margin-top: -5px;
+  height: 140px;
+}
+
+.ball {
+  max-width: 70px;
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.anonym-page {
+  padding-top: 100px;
+}
+
+.over-top {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin-top: 100px;
+}
+
+.black-text {
+  color: white;
+}
+
+.space-top {
+  margin-top: 40px;
+}
+
+.video-fw {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: -90px;
+  margin-bottom: -10px;
 }
