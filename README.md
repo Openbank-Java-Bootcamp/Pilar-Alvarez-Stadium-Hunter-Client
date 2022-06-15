@@ -101,20 +101,20 @@ Start
 ## Components and Pages Structure
 
 ### Pages
-*SignUp Page
-*Login Page
-*Home Page
-*Stadiums Page
-*User Profile Page
-*Stadium Details Page
-*Top Users Page
+* SignUp Page
+* Login Page
+* Home Page
+* Stadiums Page
+* User Profile Page
+* Stadium Details Page
+* Top Users Page
 
 
 ### Components
-*Hunt Stadium Button
-*Delete Stadium Button
-*Add Review Button
-*Search Input Form
+* Hunt Stadium Button
+* Delete Stadium Button
+* Add Review Button
+* Search Input Form
 
 
 ## Demo
