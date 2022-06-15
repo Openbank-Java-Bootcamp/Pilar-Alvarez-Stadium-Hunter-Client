@@ -100,9 +100,21 @@ Start
 
 ## Components and Pages Structure
 
+###Pages
+*SignUp Page
+*Login Page
+*Home Page
+*Stadiums Page
+*User Profile Page
+*Stadium Details Page
+*Top Users Page
 
 
-
+###Components
+*Hunt Stadium Button
+*Delete Stadium Button
+*Add Review Button
+*Search Input Form
 
 
 ## Demo
@@ -125,7 +137,7 @@ Add a Review to a Stadium
 
 Delete a Stadium from your profile
 
-![Delete-Stadium](Delete-Stadium.gif)
+![Delete-Stadium](delete-stadium.gif)
 
 See stadium details and reviews
 
@@ -154,6 +166,8 @@ This is a final project to a Full Stack Developer Bootcamp, although the idea of
 
 Instructors of Ironhack: Raymond & Shaun.
 
-https://www.baeldung.com/
+https://react-bootstrap.github.io/
 
 https://stackoverflow.com/
+
+https://www.youtube.com/
