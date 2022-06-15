@@ -3,22 +3,18 @@
 
 
 
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   
-
-  <h3 align="center">Stadium Hunter</h3>
-
-  
+   <h1 align="center">Stadium Hunter</h1>
+ 
 </div>
 
 
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Wireframes](#wireframes)
 * [Setup](#setup)
 * [Technologies Used](#technologies-used)
 * [Components and Pages Structure](#components-and-pages-structure)
@@ -31,57 +27,71 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-
-
-
-## Wireframes
-
+This project is the frontend or client side of the Stadium Hunter Web application and it was made as the final project of a full stack development bootcamp.
 
 
 
 ## Setup
 
+For development, you will only need Node.js installed on your environement. 
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+[Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
+You should be able to run the following command after the installation procedure
+below.
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+    $ node --version
+    v0.10.24
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+    $ npm --version
+    1.3.21
+
+#### Node installation on OS X
+
+You will need to use a Terminal. On OS X, you can find the default terminal in
+`/Applications/Utilities/Terminal.app`.
+
+Please install [Homebrew](http://brew.sh/) if it's not already done with the following command.
+
+    $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
+If everything when fine, you should run
+
+    brew install node
+
+#### Node installation on Linux
+
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
+
+#### Node installation on Windows
+
+Just go on [official Node.js website](http://nodejs.org/) & grab the installer.
+Also, be sure to have `git` available in your PATH, `npm` might need it.
+
+
+
+1. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Start
+   ```sh
+   $ npm start
    ```
-
 
 
 
 ## Technologies used
 
-Java, SpringBoot, MySQL, Postman.
-* [Next.js](https://nextjs.org/)
+
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
 
 
 
@@ -95,7 +105,13 @@ Java, SpringBoot, MySQL, Postman.
 
 ## Demo
 
-
+![Login](login.gif)
+![My-profile](My-profile.gif)
+![Hunt-Stadium](Hunt-Stadium.gif)
+![Add-Review](Add-review.gif)
+![Delete-Stadium](Delete-Stadium.gif)
+![Stadium-Detail](stadium-detail.gif)
+![Search](search.gif)
 
 
 ## Project Status
