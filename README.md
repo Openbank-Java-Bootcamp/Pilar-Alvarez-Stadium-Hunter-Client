@@ -101,7 +101,7 @@ Start
 
 Login Page 
 
-<div align="center">![Login](Login.gif)</div>
+![Login](Login.gif)
 
 User Profile Page
 
