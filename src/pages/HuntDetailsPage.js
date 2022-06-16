@@ -77,7 +77,10 @@ function HuntDetailsPage() {
             <div className="hunt-details">
               <h2>HUNTER: {user.name}</h2>
               <br />
-              <h3>Nº of Hunts: {huntedStadiums.length}</h3>
+              <h3>
+                Nº of Hunts:{" "}
+                <span className="numberBis">{huntedStadiums.length}</span>
+              </h3>
 
               <h5>Out of 1300 stadiums</h5>
               <MyChart hunted={huntedStadiums} />
@@ -85,7 +88,9 @@ function HuntDetailsPage() {
               <div>
                 <h5>Nº of Countries</h5>
                 <h5> where you have hunted:</h5>
-                <h5>{countries.length}</h5>
+                <h5>
+                  <span className="numberBis">{countries.length}</span>
+                </h5>
               </div>
             </div>
           </Col>

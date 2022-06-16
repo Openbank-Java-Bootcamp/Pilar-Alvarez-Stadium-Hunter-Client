@@ -31,7 +31,7 @@ This project is the frontend or client side of the Stadium Hunter Web applicatio
 
 
 
-## Setup
+## :computer: Setup
 
 For development, you will only need Node.js installed on your environement. 
 
@@ -89,7 +89,7 @@ Start
 
 
 
-## Technologies used
+## :hammer_and_wrench: Technologies used
 
 
 * [React.js](https://reactjs.org/)

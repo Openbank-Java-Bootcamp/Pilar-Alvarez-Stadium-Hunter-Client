@@ -289,6 +289,14 @@ marquee {
   border-radius: 100%;
 }
 
+.numberBis {
+  color: rgb(249, 244, 244);
+  background-color: rgb(6, 6, 6);
+  padding: 5px;
+  border-radius: 100%;
+  border: 2px solid black;
+}
+
 .goldHunter {
   background-color: brown !important;
   color: white;
