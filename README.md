@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <img src="src/images/LOGITO.png" alt="Stadium Hunter">
-   <h1 align="center">Stadium Hunter</h1>
+ 
  
 </div>
 
@@ -78,7 +78,7 @@ Start
 
 
 
-## Components and Pages Structure
+## :computer: Components and Pages Structure
 
 ### Pages
 * SignUp Page
@@ -97,11 +97,11 @@ Start
 * Search Input Form
 
 
-## Demo
+## :movie_camera: Demo
 
 Login Page 
 
-![Login](Login.gif)
+<div align="center">![Login](Login.gif)</div>
 
 User Profile Page
 
