@@ -57,73 +57,86 @@ function MyStadiumCard(props) {
 
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-3">
-      <Card bg="light" text="dark" border="dark">
+      <Card
+        bg="light"
+        text="dark"
+        border="dark"
+        style={{ width: "14rem", minHeight: 370 }}
+      >
         <Card.Header>
           <h4>{props.stadium.name}</h4>
         </Card.Header>
-        <Card.Body>
-          <Card.Text>
-            <b>City:</b> {props.stadium.city}
-          </Card.Text>
-          <Card.Text>
-            <b>Country:</b> {props.stadium.country}
-          </Card.Text>
-          <Button
-            className="margin-btn"
-            onClick={deleteStadium}
-            variant="danger"
-          >
-            Delete Stadium
-          </Button>
+        <Card.Body className="cardFlex">
+          <>
+            <Card.Text>
+              <b>City:</b> {props.stadium.city}
+            </Card.Text>
+            <Card.Text>
+              <b>Country:</b> {props.stadium.country}
+            </Card.Text>
+          </>
+          <>
+            <Button
+              className="margin-btn"
+              onClick={deleteStadium}
+              variant="danger"
+            >
+              Delete Stadium
+            </Button>
 
-          <Button className="margin-btn" variant="success" onClick={handleShow}>
-            Add Review
-          </Button>
+            <Button
+              className="margin-btn"
+              variant="success"
+              onClick={handleShow}
+            >
+              Add Review
+            </Button>
 
-          <Button className="margin-btn" variant="secondary">
-            <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
-              Stadium Details
-            </Link>
-          </Button>
+            <Button className="margin-btn" variant="secondary">
+              <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
+                Stadium Details
+              </Link>
+            </Button>
 
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Review</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlTextarea1"
-                >
-                  <Form.Label>
-                    Let other hunters know your opinion...
-                  </Form.Label>
-                  <Form.Control
-                    onChange={(e) => setComment(e.target.value)}
-                    as="textarea"
-                    rows={3}
-                  />
-                </Form.Group>
-                <Form.Select onChange={(e) => setRating(e.target.value)}>
-                  <option>Rate this stadium</option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                  <option value={4}>4</option>
-                  <option value={5}>5</option>
-                </Form.Select>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleSubmit}>
-                Submit Review
-              </Button>
-            </Modal.Footer>
-          </Modal>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Review</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Form>
+                  <Form.Group
+                    className="mb-3"
+                    controlId="exampleForm.ControlTextarea1"
+                  >
+                    <Form.Label>
+                      Let other hunters know your opinion...
+                    </Form.Label>
+                    <Form.Control
+                      onChange={(e) => setComment(e.target.value)}
+                      as="textarea"
+                      rows={3}
+                    />
+                  </Form.Group>
+                  <Form.Select onChange={(e) => setRating(e.target.value)}>
+                    <option>Rate this stadium</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                  </Form.Select>
+                </Form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleSubmit}>
+                  Submit Review
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
         </Card.Body>
       </Card>
     </Col>

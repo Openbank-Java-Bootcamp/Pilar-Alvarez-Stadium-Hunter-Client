@@ -22,14 +22,6 @@ code {
   color: black;
 }
 
-.homePageHunters {
-  height: 100vh;
-  margin-top: -40px;
-  background-image: url("./images/9.jpg");
-  background-size: cover;
-  padding-top: 70px;
-}
-
 .button-link-hp {
   text-decoration: none;
   color: rgb(10, 9, 9);
@@ -146,6 +138,10 @@ code {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.page-background {
+  background-image: url("./images/cesped4.jpg") !important;
+}
+
 .main {
   width: 100%;
   height: 100vh;
@@ -172,7 +168,7 @@ video {
 }
 
 .home-page-text {
-  color: black;
+  color: rgb(250, 249, 249);
 }
 
 .button-hp {
@@ -301,4 +297,28 @@ marquee {
   background-color: brown !important;
   color: white;
   padding: 7px;
+}
+
+.stadiumDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.carrusel {
+  min-height: 200px;
+}
+
+.blankSpace {
+  min-height: 170px;
+}
+
+.etiquetas {
+  background-color: #bde872;
+  border-radius: 10%;
+  padding: 3px;
+  border: 2px solid black;
+}
+
+.properties > h5 {
+  margin: 15px 0;
 }

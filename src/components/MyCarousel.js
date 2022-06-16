@@ -2,17 +2,10 @@ import { Carousel } from "react-bootstrap";
 
 function MyCarousel(props) {
   return (
-    <Carousel variant="dark">
+    <Carousel variant="dark" className="carrusel">
       {props.reviews.map((rev) => {
         return (
-          <Carousel.Item key={rev.id}>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+          <Carousel.Item key={rev.id} className="blankSpace">
             <Carousel.Caption>
               <h5>
                 <em>"{rev.comment}"</em>
@@ -22,6 +15,15 @@ function MyCarousel(props) {
           </Carousel.Item>
         );
       })}
+      {props.reviews.length == 0 && (
+        <Carousel.Item className="blankSpace">
+          <Carousel.Caption>
+            <h4>
+              <em>"NO REVIEWS TO SHOW"</em>
+            </h4>
+          </Carousel.Caption>
+        </Carousel.Item>
+      )}
     </Carousel>
   );
 }

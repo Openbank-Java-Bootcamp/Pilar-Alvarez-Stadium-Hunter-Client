@@ -108,30 +108,32 @@ function StadiumsListPage() {
                   Search
                 </Button>
                 <> </>
-                <Button onClick={() => refresh()} variant="outline-dark">
+                <Button onClick={() => refresh()} variant="dark">
                   Refresh
                 </Button>
               </InputGroup>
             </form>
             <div className="form-top-mg">
-              <Form.Check
-                inline
-                label="Search By Name"
-                name="group1"
-                type="radio"
-                id={`inline-radio-1`}
-                value={"name"}
-                onClick={(e) => setSearchType(e.target.value)}
-              />
-              <Form.Check
-                inline
-                label="Search By Country"
-                name="group1"
-                type="radio"
-                value={"country"}
-                id={`inline-radio-2`}
-                onClick={(e) => setSearchType(e.target.value)}
-              />
+              <b>
+                <Form.Check
+                  inline
+                  label="Search By Name"
+                  name="group1"
+                  type="radio"
+                  id={`inline-radio-1`}
+                  value={"name"}
+                  onClick={(e) => setSearchType(e.target.value)}
+                />
+                <Form.Check
+                  inline
+                  label="Search By Country"
+                  name="group1"
+                  type="radio"
+                  value={"country"}
+                  id={`inline-radio-2`}
+                  onClick={(e) => setSearchType(e.target.value)}
+                />
+              </b>
             </div>
           </Col>
         </Row>

@@ -14,6 +14,7 @@ function StadiumDetailPage() {
   const [rating, setRating] = useState(0);
   const { stadiumId } = useParams();
   const [show, setShow] = useState(false);
+  const [showLocation, setShowLocation] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -58,50 +59,42 @@ function StadiumDetailPage() {
   return (
     <div className="page-background">
       <Container>
-        <div className="top-mg">
-          <Row>
-            <Col>
-              {/*  <Card style={{ width: "35rem" }}>
-                <Card.Body>
-                  <Card.Title>{stadium.name}</Card.Title>
-                  <Card.Text>City: {stadium.city}</Card.Text>
-                  <Card.Text>Country: {stadium.country}</Card.Text>
-                  <Card.Text>Capacity: {stadium.capacity}</Card.Text>
-                  <Card.Text>Rating: {rating}</Card.Text>
-                  <StarRatings
-                    rating={rating}
-                    starRatedColor="blue"
-                    numberOfStars={5}
-                    name="rating"
-                  />
-                </Card.Body>
-              </Card> */}
-              <>
-                <h3>{stadium.name}</h3>
-                <h5>City: {stadium.city}</h5>
-                <h5>Country: {stadium.country}</h5>
-                <h5>Capacity: {stadium.capacity}</h5>
-                <h4 className="rating">Rating: {rating}</h4>
-                <StarRatings
-                  rating={rating}
-                  starRatedColor="red"
-                  numberOfStars={5}
-                  name="rating"
-                />
-              </>
-              <Container>
-                <Row style={{ marginTop: "30px" }}>
-                  {/* <h4>Stadium Reviews</h4> */}
-                  <Col>
-                    <MyCarousel reviews={reviews} />
-                  </Col>
-                </Row>
-              </Container>
-            </Col>
-            <Col>
-              <MyMap stadium={stadium} />
-            </Col>
-          </Row>
+        <div className="stadiumDetails">
+          <div className="properties">
+            <h1>{stadium.name}</h1>
+            <h5>
+              <span className="etiquetas">City:</span> {stadium.city}
+            </h5>
+            <h5>
+              <span className="etiquetas">Country:</span> {stadium.country}
+            </h5>
+            <h5>
+              <span className="etiquetas">Capacity:</span> {stadium.capacity}
+            </h5>
+            <h3 className="rating">Rating: {rating}</h3>
+            <StarRatings
+              rating={rating}
+              starRatedColor="red"
+              numberOfStars={5}
+              name="rating"
+            />
+          </div>
+          <div>
+            {/* <h4>Stadium Reviews</h4> */}
+
+            <MyCarousel reviews={reviews} />
+          </div>
+          <Button
+            variant="danger"
+            onClick={() => setShowLocation(!showLocation)}
+          >
+            {showLocation ? (
+              <>HIDE STADIUM LOCATION &#128205;</>
+            ) : (
+              <>SHOW STADIUM LOCATION &#128205;</>
+            )}
+          </Button>
+          <div>{showLocation && <MyMap stadium={stadium} />}</div>
         </div>
       </Container>
     </div>

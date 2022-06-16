@@ -114,7 +114,7 @@ function HuntDetailsPage() {
               <> </>
               <Button
                 onClick={() => setToShowStadiums(huntedStadiums)}
-                variant="outline-dark"
+                variant="dark"
               >
                 Refresh
               </Button>

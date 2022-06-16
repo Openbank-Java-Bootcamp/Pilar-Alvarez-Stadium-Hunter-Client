@@ -6,7 +6,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  
+  <img src="src/images/LOGITO.png" alt="Stadium Hunter">
    <h1 align="center">Stadium Hunter</h1>
  
 </div>
@@ -26,8 +26,9 @@
 
 
 
-## General Information
+## :grey_exclamation: General Information
 This project is the frontend or client side of the Stadium Hunter Web application and it was made as the final project of a full stack development bootcamp.
+Stadium Hunter is an app that allows users to keep track of all the football stadiums they have visited and leave reviews on them.
 
 
 
@@ -40,37 +41,16 @@ You should be able to run the following command after the installation procedure
 below.
 
     $ node --version
-    v0.10.24
+    
 
     $ npm --version
-    1.3.21
+   
 
-#### Node installation on OS X
-
-You will need to use a Terminal. On OS X, you can find the default terminal in
-`/Applications/Utilities/Terminal.app`.
-
-Please install [Homebrew](http://brew.sh/) if it's not already done with the following command.
-
-    $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-
-If everything when fine, you should run
-
-    brew install node
-
-#### Node installation on Linux
-
-    sudo apt-get install python-software-properties
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get install nodejs
 
 #### Node installation on Windows
 
 Just go on [official Node.js website](http://nodejs.org/) & grab the installer.
 Also, be sure to have `git` available in your PATH, `npm` might need it.
-
-
 
 
 
@@ -148,12 +128,12 @@ Search a Stadium by Name or by Country
 ![Search](search.gif)
 
 
-## Project Status
+## :hourglass: Project Status
 Project is: _no longer being worked on_.
 This is a final project to a Full Stack Developer Bootcamp, although the idea of ​​the app motivates me, I consider the work finished with the purposes it was supposed to.
 
 
-## Room for Improvement
+## :rocket: Room for Improvement
 
 - Let users add images to the review.
 - Improve the styling.
@@ -162,7 +142,7 @@ This is a final project to a Full Stack Developer Bootcamp, although the idea of
 
 
 
-## Resources
+## :books: Resources
 
 Instructors of Ironhack: Raymond & Shaun.
 

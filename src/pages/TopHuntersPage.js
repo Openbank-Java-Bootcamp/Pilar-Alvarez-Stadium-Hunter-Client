@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Carousel, CarouselItem, Col, Container, Row } from "react-bootstrap";
 import UserCard from "../components/UserCard";
-import fireworks from "../images/fireworks.mp4";
-import celebration from "../images/celebration.mp4";
 import champions from "../images/champions.mp4";
 
 const API_URL = "http://localhost:5005";
@@ -34,7 +32,7 @@ function TopHuntersPage() {
           <h4>Our current 5 top hunters:</h4>
         </div>
 
-        <div className="space-top topList">
+        <div className="topList">
           {topUsers.map((user) => (
             <UserCard key={user.id} user={user} />
           ))}
