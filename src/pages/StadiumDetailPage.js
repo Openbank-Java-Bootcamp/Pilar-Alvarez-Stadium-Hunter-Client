@@ -61,7 +61,7 @@ function StadiumDetailPage() {
         <div className="top-mg">
           <Row>
             <Col>
-              <Card style={{ width: "35rem" }}>
+              {/*  <Card style={{ width: "35rem" }}>
                 <Card.Body>
                   <Card.Title>{stadium.name}</Card.Title>
                   <Card.Text>City: {stadium.city}</Card.Text>
@@ -75,7 +75,20 @@ function StadiumDetailPage() {
                     name="rating"
                   />
                 </Card.Body>
-              </Card>
+              </Card> */}
+              <>
+                <h3>{stadium.name}</h3>
+                <h5>City: {stadium.city}</h5>
+                <h5>Country: {stadium.country}</h5>
+                <h5>Capacity: {stadium.capacity}</h5>
+                <h4 className="rating">Rating: {rating}</h4>
+                <StarRatings
+                  rating={rating}
+                  starRatedColor="red"
+                  numberOfStars={5}
+                  name="rating"
+                />
+              </>
               <Container>
                 <Row style={{ marginTop: "30px" }}>
                   {/* <h4>Stadium Reviews</h4> */}

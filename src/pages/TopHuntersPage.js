@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Col, Container, Row } from "react-bootstrap";
+import { Carousel, CarouselItem, Col, Container, Row } from "react-bootstrap";
 import UserCard from "../components/UserCard";
 import fireworks from "../images/fireworks.mp4";
+import celebration from "../images/celebration.mp4";
+import champions from "../images/champions.mp4";
 
 const API_URL = "http://localhost:5005";
 
@@ -24,22 +26,19 @@ function TopHuntersPage() {
   }, []);
 
   return (
-    <div className="main">
-      <video src={fireworks} loop autoPlay muted />
+    <div className="video-fw">
+      <video src={champions} loop autoPlay muted />
       <div className="over-top">
-        <Container>
-          <Row className="black-text">
-            <h2>JUST TO KEEP YOU MOTIVATED</h2>
-            <h4>Our current 5 top hunters:</h4>
-          </Row>
-          <div className="space-top">
-            <Row>
-              {topUsers.map((user) => (
-                <UserCard key={user.id} user={user} />
-              ))}
-            </Row>
-          </div>
-        </Container>
+        <div className="black-text">
+          <h2>JUST TO KEEP YOU MOTIVATED</h2>
+          <h4>Our current 5 top hunters:</h4>
+        </div>
+
+        <div className="space-top topList">
+          {topUsers.map((user) => (
+            <UserCard key={user.id} user={user} />
+          ))}
+        </div>
       </div>
     </div>
   );

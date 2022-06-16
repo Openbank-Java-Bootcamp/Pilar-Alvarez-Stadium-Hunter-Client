@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap/";
+import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap/";
+import Logo from "../images/LOGITO.png";
+import { logDOM } from "@testing-library/react";
 
 function Header() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -21,7 +23,10 @@ function Header() {
           as={Link}
           to="/"
         >
-          <span>StadiumHunters</span>
+          <div className="logo">
+            <img src={Logo} width={170} />
+          </div>
+          {/* <span>StadiumHunters</span> */}
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse
@@ -37,10 +42,19 @@ function Header() {
             <>
               <Nav id="responsive-navbar-nav" className="me-auto">
                 <Nav.Link as={Link} to="/stadiums">
-                  Hunt
+                  <Button variant="light" className="greyBtn" size="sm">
+                    Hunt Stadiums
+                  </Button>
+                </Nav.Link>
+                <Nav.Link as={Link} to="/myHunt">
+                  <Button variant="light" className="greyBtn" size="sm">
+                    My Hunts
+                  </Button>
                 </Nav.Link>
                 <Nav.Link as={Link} to="/topHunters">
-                  TopHunters
+                  <Button variant="light" className="greyBtn" size="sm">
+                    TopHunters
+                  </Button>
                 </Nav.Link>
               </Nav>
               <Nav>
@@ -50,7 +64,7 @@ function Header() {
               </Nav>
 
               <Nav>
-                <NavDropdown title="Profile" align="end">
+                {/* <NavDropdown title="Profile" align="end">
                   <NavDropdown.Item as={Link} to="#">
                     Alguna pag
                   </NavDropdown.Item>
@@ -64,7 +78,15 @@ function Header() {
                   <NavDropdown.Item onClick={logOutUser}>
                     Log Out
                   </NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
+                <Nav.Link
+                  style={{ marginRight: "3rem" }}
+                  as={Link}
+                  onClick={logOutUser}
+                  to="#"
+                >
+                  Log Out
+                </Nav.Link>
               </Nav>
             </>
           ) : (

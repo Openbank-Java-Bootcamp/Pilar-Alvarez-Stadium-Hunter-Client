@@ -15,6 +15,7 @@ import {
 } from "react-bootstrap";
 import Chart from "chart.js/auto";
 import MyChart from "../components/MyChart";
+import noResult from "../images/detective.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -124,6 +125,18 @@ function HuntDetailsPage() {
               getHuntedStadiums={getHuntedStadiums}
             />
           ))}
+          {toShowStadiums.length == 0 && (
+            <>
+              <div></div>
+              <div className="noResults">
+                <h4>
+                  <b>Oops! No results found.</b>
+                </h4>
+                <img width={300} src={noResult} alt="no-results" />
+              </div>
+              <div></div>
+            </>
+          )}
         </Row>
       </Container>
     </div>

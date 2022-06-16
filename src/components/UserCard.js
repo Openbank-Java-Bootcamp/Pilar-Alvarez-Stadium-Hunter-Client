@@ -3,14 +3,14 @@ import gold from "../images/medalla.png";
 
 function UserCard(props) {
   return (
-    <Col className="col-sm-6 col-md-4 ">
+    <div className="sideMargins">
       <Card
         style={{ width: "16rem" }}
         border="secondary"
         className="shadow-card"
       >
         <Card.Body>
-          <Card.Title>GOLD HUNTER</Card.Title>
+          <Card.Title className="goldHunter">GOLD HUNTER</Card.Title>
 
           <Card.Text>
             <img src={gold} style={{ width: 50 }} />
@@ -19,11 +19,12 @@ function UserCard(props) {
             <b> {props.user.name.toUpperCase()}</b>
           </Card.Text>
           <Card.Text>
-            <b>Nº of Hunts:</b> {props.user.huntedStadiums.length}
+            <b>Nº of Hunts:</b>{" "}
+            <span className="number">{props.user.huntedStadiums.length}</span>
           </Card.Text>
         </Card.Body>
       </Card>
-    </Col>
+    </div>
   );
 }
 

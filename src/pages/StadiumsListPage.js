@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 import StadiumCard from "../components/StadiumCard";
 import football from "../images/football-no-background.png";
+import noResult from "../images/detective.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -153,6 +154,19 @@ function StadiumsListPage() {
               getRemainStadiums={getRemainStadiums}
             />
           ))}
+
+          {toShowStadiums.length == 0 && isLoaded && (
+            <>
+              <div></div>
+              <div className="noResults">
+                <h4>
+                  <b>Oops! No results found.</b>
+                </h4>
+                <img width={300} src={noResult} alt="no-results" />
+              </div>
+              <div></div>
+            </>
+          )}
         </Row>
       </Container>
     </div>

@@ -11,6 +11,7 @@ import IsPrivate from "./components/IsPrivate";
 import StadiumDetailPage from "./pages/StadiumDetailPage";
 import HuntDetailsPage from "./pages/HuntDetailsPage";
 import TopHuntersPage from "./pages/TopHuntersPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
             </IsPrivate>
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

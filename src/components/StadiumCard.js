@@ -29,19 +29,21 @@ function StadiumCard(props) {
   return (
     <Col key={props.stadium.id} className="col-sm-6 col-md-4 ">
       <Card
-        style={{ width: "14rem" }}
+        style={{ width: "14rem", minHeight: 270 }}
         border="secondary"
         className="shadow-card"
       >
-        <Card.Body>
-          <Card.Title>{props.stadium.name.toUpperCase()}</Card.Title>
-          <Card.Text>
-            <b>City:</b> {props.stadium.city}
-          </Card.Text>
-          <Card.Text>
-            <b>Country:</b> {props.stadium.country}
-          </Card.Text>
-          <>
+        <Card.Body className="cardFlex">
+          <div>
+            <Card.Title>{props.stadium.name.toUpperCase()}</Card.Title>
+            <Card.Text>
+              <b>City:</b> {props.stadium.city}
+            </Card.Text>
+            <Card.Text>
+              <b>Country:</b> {props.stadium.country}
+            </Card.Text>
+          </div>
+          <div>
             <Button className="margin-btn" variant="secondary">
               <Link className="plain-link" to={`/stadiums/${props.stadium.id}`}>
                 Stadium Details
@@ -54,7 +56,7 @@ function StadiumCard(props) {
             >
               Hunt Stadium!
             </Button>
-          </>
+          </div>
         </Card.Body>
       </Card>
     </Col>

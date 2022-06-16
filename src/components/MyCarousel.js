@@ -14,10 +14,10 @@ function MyCarousel(props) {
             <br />
             <br />
             <Carousel.Caption>
-              <h3>
+              <h5>
                 <em>"{rev.comment}"</em>
-              </h3>
-              <p>{rev.user.name}</p>
+              </h5>
+              <p>-Hunter {rev.user.name}</p>
             </Carousel.Caption>
           </Carousel.Item>
         );

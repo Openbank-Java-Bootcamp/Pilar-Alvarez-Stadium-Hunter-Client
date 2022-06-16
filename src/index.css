@@ -108,7 +108,7 @@ code {
 }
 
 .hunt-details {
-  background-color: rgb(230, 242, 162);
+  background-color: rgb(213, 216, 194);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 80vh;
   padding: 20px;
@@ -130,19 +130,20 @@ code {
 .page-background {
   padding-top: 80px;
   min-height: 100vh;
+  padding-bottom: 50px;
   /* margin-top: 50px; */
-  background: #bdc3c7; /* fallback for old browsers */
+
+  background: #00b09b; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #2c3e50,
-    #bdc3c7
+    #96c93d,
+    #00b09b
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #2c3e50,
-    #bdc3c7
+    #96c93d,
+    #00b09b
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding-bottom: 50px;
 }
 
 .main {
@@ -184,7 +185,7 @@ video {
 }
 
 .form-top-mg {
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 marquee {
@@ -193,7 +194,7 @@ marquee {
 }
 
 .ball {
-  max-width: 70px;
+  max-width: 90px;
   animation: animate 4s linear infinite;
 }
 
@@ -222,13 +223,74 @@ marquee {
   color: white;
 }
 
-.space-top {
-  margin-top: 40px;
+.noResults {
+  margin-left: 140px;
+}
+
+.error {
+  padding-top: 150px;
+}
+
+.logo {
+  margin-left: 15px;
+}
+
+.rating {
+  margin-top: 20px;
+}
+
+.greyBtn {
+  background-color: #dfd9d9 !important;
+}
+
+.cardFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .video-fw {
   width: 100%;
   min-height: 100vh;
-  margin-top: -90px;
-  margin-bottom: -10px;
+  height: 800px;
+}
+
+.topList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.over-top {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sideMargins {
+  margin: 0px 20px 30px 20px;
+}
+
+.number {
+  font-size: larger;
+  color: white;
+  background-color: brown;
+  padding: 5px;
+  border-radius: 100%;
+}
+
+.goldHunter {
+  background-color: brown !important;
+  color: white;
+  padding: 7px;
 }
