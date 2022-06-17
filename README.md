@@ -96,7 +96,7 @@ Start
 * Add Review Button
 * Search Input Form
 
-![Structure-Diagram](pages-diagram.gif)
+![Structure-Diagram](pages-diagram.png)
 
 
 ## :movie_camera: Demo
