@@ -32,7 +32,7 @@ Stadium Hunter is an app that allows users to keep track of all the football sta
 
 
 
-## :computer: Setup
+## :gear: Setup
 
 For development, you will only need Node.js installed on your environement. 
 
@@ -95,6 +95,8 @@ Start
 * Delete Stadium Button
 * Add Review Button
 * Search Input Form
+
+![Structure-Diagram](pages-diagram.gif)
 
 
 ## :movie_camera: Demo
