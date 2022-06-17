@@ -74,7 +74,7 @@ Start
 
 * [React.js](https://reactjs.org/)
 * [Bootstrap](https://getbootstrap.com)
-
+* [JavaScript](https://www.javascript.com/)
 
 
 
